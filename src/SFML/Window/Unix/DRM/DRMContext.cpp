@@ -462,6 +462,8 @@ void DRMContext::display()
     //
     // If first time, need to first call drmModeSetCrtc()
     //
+	drmSetMaster(my_drm.fd);
+    
     if ( !m_shown )
     {
         if ( drmModeSetCrtc( my_drm.fd, my_drm.crtc_id, fb->fb_id, 0, 0,

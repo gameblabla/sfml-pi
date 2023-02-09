@@ -37,6 +37,7 @@
 #include <cassert>
 #include <cstring>
 
+#define SFML_OPENGL_ES 1
 
 namespace
 {
@@ -332,7 +333,7 @@ Image Texture::copyToImage() const
     // Create an array of pixels
     std::vector<Uint8> pixels(m_size.x * m_size.y * 4);
 
-#ifdef SFML_OPENGL_ES
+#if 1
 
     // OpenGL ES doesn't have the glGetTexImage function, the only way to read
     // from a texture is to bind it to a FBO and use glReadPixels

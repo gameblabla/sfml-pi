@@ -41,6 +41,7 @@
 #include <algorithm>
 #include <map>
 
+#define SFML_OPENGL_ES 1
 
 // GL_QUADS is unavailable on OpenGL ES, thus we need to define GL_QUADS ourselves
 #ifdef SFML_OPENGL_ES
@@ -443,10 +444,10 @@ void RenderTarget::pushGLStates()
             }
         #endif
 
-        #ifndef SFML_OPENGL_ES
+        /*#ifndef SFML_OPENGL_ES
             glCheck(glPushClientAttrib(GL_CLIENT_ALL_ATTRIB_BITS));
             glCheck(glPushAttrib(GL_ALL_ATTRIB_BITS));
-        #endif
+        #endif*/
         glCheck(glMatrixMode(GL_MODELVIEW));
         glCheck(glPushMatrix());
         glCheck(glMatrixMode(GL_PROJECTION));
